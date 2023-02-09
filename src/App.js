@@ -2,11 +2,20 @@ import './App.css';
 import { useEffect } from 'react';
 import axios from 'axios';
 import SearchIcon from './search.svg'
+import MovieCard from './MovieCard';
 
 
 //3be92b63-api key
 
 const API_URL = 'http://www.omdbapi.com?apikey=3be92b63';
+
+const movie1={
+  "Title": "Amazing Spiderman Syndrome",
+  "Year": "2012",
+  "imdbID": "tt2586634",
+  "Type": "movie",
+  "Poster": "N/A"
+}
 
 
 
@@ -28,8 +37,13 @@ const App= ()=> {
     <div className="search">
       <input placeholder='Search for movies'
       value="Superman"
+      onChange={()=>{}}
       />  
+      <img src={SearchIcon} alt="search" onClick={()=>{}}/>
     </div>  
+     <div className='container'>
+        <MovieCard movie1={movie1}/>
+      </div>
     </div>
   );
 }

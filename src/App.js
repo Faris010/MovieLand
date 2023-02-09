@@ -1,23 +1,35 @@
-import logo from './logo.svg';
 import './App.css';
+import { useEffect } from 'react';
+import axios from 'axios';
+import SearchIcon from './search.svg'
 
-function App() {
+
+//3be92b63-api key
+
+const API_URL = 'http://www.omdbapi.com?apikey=3be92b63';
+
+
+
+const App= ()=> {
+  const searchMovies=async(title)=>{
+    const response=await axios.get(`${API_URL}&s=${title}`);
+    const data=response.data;
+    
+    console.log(data);
+    
+  }
+  useEffect(()=>{
+    searchMovies('Spiderman');
+  },[])
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>MovieLand</h1>
+
+    <div className="search">
+      <input placeholder='Search for movies'
+      value="Superman"
+      />  
+    </div>  
     </div>
   );
 }
